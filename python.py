@@ -1,8 +1,8 @@
 '''
-Write a Python program to calculate the length of a string.
-Write a Python program to get the largest number from a list
-. Write a Python program to count the number of characters in a string
-Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string is already ends with 'ing' then add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
+1) Write a Python program to calculate the length of a string.
+2) Write a Python program to get the largest number from a list
+3)  Write a Python program to count the number of characters in a string
+4) Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string is already ends with 'ing' then add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
 5) Find the common elements between two tuples.
 tup1 = (1, 2, 3, 4)
 tup2 = (3, 4, 5, 6)
@@ -51,7 +51,14 @@ def calculate_frequency(s):
     return dicti
 
 
-# 4
+# 4 is for memory check , == for val
+def ing(s):
+    if len(s) >= 3:
+        if s[-3:] == "ing":
+            s+="ly"
+        else:
+            s+="ing"
+    return s
 
 
 # 5
@@ -104,6 +111,8 @@ def convertt(lst):
         res.append(s)
     return (res)
 
+#11
+
 #############################################################################################
 
 l = calculate_length("abcd")
@@ -114,6 +123,9 @@ print(maxi)
 
 freq = calculate_frequency("aabgfdsaddcde")
 print(freq)
+
+s=ing("happying")
+print(s)
 
 tup1 = (1, 2, 3, 4, "aa")
 tup2 = (3, 4, 5, 6, "aa", "bb")
@@ -135,3 +147,16 @@ lst=[(1,2,3),(1,2,3),(1,2,3)]
 res=convertt(lst)
 print(res)
 
+
+def find_pair_sum_to_zero(nums):
+    for num in nums:
+        complement = -num
+        if complement in nums:
+            complement_index = nums.index(complement)
+            num_index = nums.index(num)
+            if complement_index != num_index:
+                return [num, complement]
+    return []
+
+nums = [3, 2, 3, -3, -1]
+print(find_pair_sum_to_zero(nums))
